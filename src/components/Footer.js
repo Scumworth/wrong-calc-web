@@ -5,7 +5,7 @@ import './Footer.css'
 
 const Footer = () => (
     <div id = "footer">
-        <p>Footer</p>
+        <a href = "https://github.com/Scumworth/wrong-calc-web">&lt;Github&gt;</a>
     </div>
 );
 
