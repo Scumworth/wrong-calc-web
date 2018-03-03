@@ -1,14 +1,37 @@
+*:focus {
+    outline: none;
+}
+
+button {
+    border: none;
+}
+
 .keypad {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-gap: 15px;
+    background-color: #65725a;
+    padding: 15px;
 }
 
 .calc-button {
+    background-color: #373a35;
+    color: #fff;
     padding: 20px;
     border-radius: 5px;
     font-size: 20px;
     cursor: pointer;
+    box-shadow: 5px 5px 1px #000;
+    font-family: 'Iceland', monospace;
+    font-size: 30px;
+}
+
+.calc-button:active {
+    box-shadow: 0px 0px 0px;
+}
+
+.calc-button:hover {
+    background-color: #191918;
 }
 
 .clear-button, .zero-button {

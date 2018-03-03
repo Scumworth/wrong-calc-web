@@ -5,7 +5,7 @@ import './Keypad.css';
 
 const Keypad = () => (
     <div className = "keypad">
-        <button className = "calc-button">CLEAR</button>
+        <button className = "calc-button clear-button">CLEAR</button>
         <button className = "calc-button">/</button>
         <button className = "calc-button">7</button>
         <button className = "calc-button">8</button>
@@ -19,7 +19,7 @@ const Keypad = () => (
         <button className = "calc-button">2</button>
         <button className = "calc-button">3</button>
         <button className = "calc-button">+</button>
-        <button className = "calc-button">0</button>
+        <button className = "calc-button zero-button">0</button>
         <button className = "calc-button">=</button>
     </div>
 );
