@@ -1,0 +1,20 @@
+#screen {
+    display: grid;
+    grid-template-columns: 1fr;
+    background-color: #33cc00;
+    height: 75px;
+    margin: 0px auto;
+    border: 5px solid #070707;
+    border-radius: 5px;
+}
+
+#screen-text {
+    text-align: right;
+    font-family: 'VT323', sans-serif;
+    font-size: 30px;
+}
+
+#base {
+    background: linear-gradient(#4c5643, #65725a);
+    padding: 10px;
+}
