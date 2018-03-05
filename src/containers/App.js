@@ -14,7 +14,7 @@ class App extends Component {
             <div>
                 <Header />
                 <Display 
-                    expression = { this.props.expression }
+                    onScreen = { this.props.onScreen }
                 />
                 <KeypadContainer />
                 <Slider />
@@ -26,8 +26,8 @@ class App extends Component {
 
 const mapStateToProps = (state) => {
     const { display } = state;
-    const { expression } = display;
-    return { expression };
+    const { onScreen } = display;
+    return { onScreen };
 };
 
 const mapDispatchToProps = (dispatch) => {
