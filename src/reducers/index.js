@@ -2,14 +2,16 @@
 
 import {
     SELECT_EXPRESSION,
-    SELECT_ONSCREEN
+    SELECT_ONSCREEN,
+    SELECT_MODE
 } from '../actions';
 
 export const display = (state = {
     expression: '',
     onScreen: 0,
     lastNum: '',
-    lastChar: ''
+    lastChar: '',
+    mode: true
 
 }, action) => {
     switch (action.type) {
@@ -26,7 +28,14 @@ export const display = (state = {
                 ...state,
                 onScreen: action.onScreen
             }
+        case SELECT_MODE:
+            return {
+                ...state,
+                mode: action.mode
+            }
         default: 
             return state;
     }
 }
+
+

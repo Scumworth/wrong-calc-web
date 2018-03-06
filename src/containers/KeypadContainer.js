@@ -23,8 +23,8 @@ class KeypadContainer extends Component {
 
 const mapStateToProps = (state) => {
     const { display } = state;
-    const { expression, lastNum, lastChar } = display;
-    return { expression, lastNum, lastChar };
+    const { expression, lastNum, lastChar, mode } = display;
+    return { expression, lastNum, lastChar, mode };
 };
 
 const mapDispatchToProps = (dispatch) => {
