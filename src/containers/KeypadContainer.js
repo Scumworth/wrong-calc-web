@@ -10,7 +10,12 @@ class KeypadContainer extends Component {
     render() {
         return (
             <div>
-                <Keypad pressKey = { this.props.pressKey } currExp = { this.props.expression }/>
+                <Keypad 
+                    pressKey = { this.props.pressKey } 
+                    currExp = { this.props.expression }
+                    lastNum = { this.props.lastNum }
+                    lastChar = { this.props.lastChar }
+                />
             </div>
         );
     }
@@ -18,15 +23,14 @@ class KeypadContainer extends Component {
 
 const mapStateToProps = (state) => {
     const { display } = state;
-    const { expression } = display;
-    return { expression };
+    const { expression, lastNum, lastChar } = display;
+    return { expression, lastNum, lastChar };
 };
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        pressKey: (e, currExp) => {
+        pressKey: (e, currExp, lastNum, lastChar) => {
             e.preventDefault();
-            console.log(currExp);
             const target = e.target || e.srcElement;
             const keyID = target.textContent;
             if (keyID === "CLEAR"){
@@ -34,18 +38,16 @@ const mapDispatchToProps = (dispatch) => {
                 dispatch(selectOnScreen('0'));
                 dispatch(selectExpression(''));
             }
-            else if (keyID === "="){
+            else if (keyID === '=' && isNaN(lastChar) === false && currExp.length > 0){
                 dispatch(selectOnScreen(math.eval(currExp)));
-                dispatch(selectExpression(''));
+                dispatch(selectExpression(math.eval(currExp)));
 
             }
-            else if (keyID === "/" || keyID === "*" || keyID === "+" || keyID === "-"){
+            else if (isNaN(lastChar) === false && (keyID === '/' || keyID === '*' || keyID === '+' || keyID === '-')){
                 dispatch(selectExpression(currExp + keyID));
             }
-            else {
-                const numArray = currExp.split(/\D/g);
-                const currDisplay = numArray[numArray.length -1];
-                dispatch(selectOnScreen(currDisplay + keyID));
+            else if (isNaN(keyID) === false) {
+                dispatch(selectOnScreen(lastNum + keyID));
                 dispatch(selectExpression(currExp + keyID));
             }
             

@@ -3,24 +3,24 @@
 import React from 'react';
 import './Keypad.css';
 
-const Keypad = ( { pressKey, currExp }) => (
+const Keypad = ( { pressKey, currExp, lastNum, lastChar }) => (
     <div className = "keypad">
-        <button className = "calc-button clear-button" onClick = { e => pressKey(e, currExp) }>CLEAR</button>
-        <button className = "calc-button" onClick = { e => pressKey(e, currExp) }>/</button>
-        <button className = "calc-button" onClick = { e => pressKey(e, currExp) }>7</button>
-        <button className = "calc-button" onClick = { e => pressKey(e, currExp) }>8</button>
-        <button className = "calc-button" onClick = { e => pressKey(e, currExp) }>9</button>
-        <button className = "calc-button" onClick = { e => pressKey(e, currExp) }>*</button>
-        <button className = "calc-button" onClick = { e => pressKey(e, currExp) }>4</button>
-        <button className = "calc-button" onClick = { e => pressKey(e, currExp) }>5</button>
-        <button className = "calc-button" onClick = { e => pressKey(e, currExp) }>6</button>
-        <button className = "calc-button" onClick = { e => pressKey(e, currExp) }>-</button>
-        <button className = "calc-button" onClick = { e => pressKey(e, currExp) }>1</button>
-        <button className = "calc-button" onClick = { e => pressKey(e, currExp) }>2</button>
-        <button className = "calc-button" onClick = { e => pressKey(e, currExp) }>3</button>
-        <button className = "calc-button" onClick = { e => pressKey(e, currExp) }>+</button>
-        <button className = "calc-button zero-button" onClick = { e => pressKey(e, currExp) }>0</button>
-        <button className = "calc-button" onClick = { e => pressKey(e, currExp) }>=</button>
+        <button className = "calc-button clear-button" onClick = { e => pressKey(e, currExp, lastNum, lastChar) }>CLEAR</button>
+        <button className = "calc-button" onClick = { e => pressKey(e, currExp, lastNum, lastChar) }>/</button>
+        <button className = "calc-button" onClick = { e => pressKey(e, currExp, lastNum, lastChar) }>7</button>
+        <button className = "calc-button" onClick = { e => pressKey(e, currExp, lastNum, lastChar) }>8</button>
+        <button className = "calc-button" onClick = { e => pressKey(e, currExp, lastNum, lastChar) }>9</button>
+        <button className = "calc-button" onClick = { e => pressKey(e, currExp, lastNum, lastChar) }>*</button>
+        <button className = "calc-button" onClick = { e => pressKey(e, currExp, lastNum, lastChar) }>4</button>
+        <button className = "calc-button" onClick = { e => pressKey(e, currExp, lastNum, lastChar) }>5</button>
+        <button className = "calc-button" onClick = { e => pressKey(e, currExp, lastNum, lastChar) }>6</button>
+        <button className = "calc-button" onClick = { e => pressKey(e, currExp, lastNum, lastChar) }>-</button>
+        <button className = "calc-button" onClick = { e => pressKey(e, currExp, lastNum, lastChar) }>1</button>
+        <button className = "calc-button" onClick = { e => pressKey(e, currExp, lastNum, lastChar) }>2</button>
+        <button className = "calc-button" onClick = { e => pressKey(e, currExp, lastNum, lastChar) }>3</button>
+        <button className = "calc-button" onClick = { e => pressKey(e, currExp, lastNum, lastChar) }>+</button>
+        <button className = "calc-button zero-button" onClick = { e => pressKey(e, currExp, lastNum, lastChar) }>0</button>
+        <button className = "calc-button" onClick = { e => pressKey(e, currExp, lastNum, lastChar) }>=</button>
     </div>
 );
 
