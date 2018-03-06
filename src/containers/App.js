@@ -7,6 +7,7 @@ import Footer from './../components/Footer';
 import Display from './../components/Display';
 import Slider from './../components/Slider';
 import KeypadContainer from './KeypadContainer';
+import { selectMode } from './../actions';
 
 class App extends Component {
     render() {
@@ -17,7 +18,7 @@ class App extends Component {
                     onScreen = { this.props.onScreen }
                 />
                 <KeypadContainer />
-                <Slider />
+                <Slider wrongMode = { this.props.wrongMode } flipMode = { this.props.flipMode } />
                 <Footer />
             </div>
         );
@@ -26,12 +27,16 @@ class App extends Component {
 
 const mapStateToProps = (state) => {
     const { display } = state;
-    const { onScreen } = display;
-    return { onScreen };
+    const { onScreen, wrongMode } = display;
+    return { onScreen, wrongMode };
 };
 
 const mapDispatchToProps = (dispatch) => {
-
+    return {
+        flipMode: (currMode) => {
+            dispatch(selectMode(!currMode))
+        }
+    }
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

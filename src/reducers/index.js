@@ -11,7 +11,7 @@ export const display = (state = {
     onScreen: 0,
     lastNum: '',
     lastChar: '',
-    mode: true
+    wrongMode: false
 
 }, action) => {
     switch (action.type) {
@@ -31,7 +31,7 @@ export const display = (state = {
         case SELECT_MODE:
             return {
                 ...state,
-                mode: action.mode
+                wrongMode: action.wrongMode
             }
         default: 
             return state;

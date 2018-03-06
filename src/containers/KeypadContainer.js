@@ -15,6 +15,7 @@ class KeypadContainer extends Component {
                     currExp = { this.props.expression }
                     lastNum = { this.props.lastNum }
                     lastChar = { this.props.lastChar }
+                    wrongMode = { this.props.wrongMode } 
                 />
             </div>
         );
@@ -23,13 +24,13 @@ class KeypadContainer extends Component {
 
 const mapStateToProps = (state) => {
     const { display } = state;
-    const { expression, lastNum, lastChar, mode } = display;
-    return { expression, lastNum, lastChar, mode };
+    const { expression, lastNum, lastChar, wrongMode } = display;
+    return { expression, lastNum, lastChar, wrongMode };
 };
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        pressKey: (e, currExp, lastNum, lastChar) => {
+        pressKey: (e, currExp, lastNum, lastChar, wrongMode) => {
             e.preventDefault();
             const target = e.target || e.srcElement;
             const keyID = target.textContent;
@@ -39,8 +40,15 @@ const mapDispatchToProps = (dispatch) => {
                 dispatch(selectExpression(''));
             }
             else if (keyID === '=' && isNaN(lastChar) === false && currExp.length > 0){
-                dispatch(selectOnScreen(math.eval(currExp)));
-                dispatch(selectExpression(math.eval(currExp)));
+                if(wrongMode){
+                   const wrongAnswer = Math.floor(Math.random() * 1000) 
+                    dispatch(selectOnScreen(wrongAnswer));
+                    dispatch(selectExpression(wrongAnswer));
+                }
+                else {
+                    dispatch(selectOnScreen(math.eval(currExp)));
+                    dispatch(selectExpression(math.eval(currExp)));
+                }
 
             }
             else if (isNaN(lastChar) === false && (keyID === '/' || keyID === '*' || keyID === '+' || keyID === '-')){

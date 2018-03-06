@@ -51,19 +51,14 @@
     transition: .5s;
 }
 
-input:checked + .slider {
+.rc-checkbox-checked + .slider {
     background-color: #ff1d00;
 }
 
-input:focus + .slider {
-    box-shadow: 0 0 1px #ff1d00;
-}
-
-input:checked + .slider:before {
+.rc-checkbox-checked + .slider:before {
     -webkit-transform: translateX(50px);
     -ms-transform: translateX(50px);
     transform: translateX(50px);
+
 }
-
-
 

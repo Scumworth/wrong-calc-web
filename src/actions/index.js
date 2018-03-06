@@ -14,7 +14,7 @@ export const selectOnScreen = (onScreen) => ({
     onScreen
 });
 
-export const selectMode = (mode) => ({
+export const selectMode = (wrongMode) => ({
     type: SELECT_MODE,
-    mode
+    wrongMode
 });
