@@ -4,7 +4,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Keypad from './../components/Keypad';
 import { selectOnScreen, selectExpression } from './../actions';
-import math from 'mathjs';
+import { evaluate } from 'mathjs';
 
 class KeypadContainer extends Component {
     render() {
@@ -46,8 +46,8 @@ const mapDispatchToProps = (dispatch) => {
                     dispatch(selectExpression(wrongAnswer));
                 }
                 else {
-                    dispatch(selectOnScreen(math.eval(currExp)));
-                    dispatch(selectExpression(math.eval(currExp)));
+                    dispatch(selectOnScreen(evaluate(currExp)));
+                    dispatch(selectExpression(evaluate(currExp)));
                 }
 
             }
