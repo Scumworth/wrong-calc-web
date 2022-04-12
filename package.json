@@ -1,6 +1,9 @@
 {
   "name": "wrong-calc-web",
   "version": "0.1.0",
+  "engines": {
+      "node": "^17.4.0"
+  }
   "private": true,
   "homepage": "https://Scumworth.github.io/wrong-calc-web:",
   "dependencies": {
